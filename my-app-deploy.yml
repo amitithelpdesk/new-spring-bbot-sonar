@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app-deployment
+  name: next-app-deployment
 spec:
   selector:
     matchLabels:
@@ -10,10 +10,10 @@ spec:
   template:
     metadata:
       labels:
-        app: my-app
+        app: next-app
     spec:
       containers:
-      - name: my-app
-        image: gcr.io/concise-haven-327611/new-app:00
+      - name: next-app
+        image: gcr.io/concise-haven-327611/next-app:00
         ports:
         - containerPort: 8080
