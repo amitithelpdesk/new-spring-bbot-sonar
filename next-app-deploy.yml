@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: my-app
+      app: next-app
   replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
