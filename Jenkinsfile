@@ -14,7 +14,7 @@
     stages {
         stage('Clone the code') {
             steps {
-                git branch: 'Rnow',
+                git branch: 'rnow',
                    //credentialsId: 'amitgithub',
                    url: 'https://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@github.com/amitithelpdesk/new-spring-bbot-sonar.git'
             }
@@ -66,10 +66,10 @@
         }
 		stage('docker build') {
             steps {
-                sh 'docker build -t gcr.io/concise-haven-327611/Rnow:${BUILD_NUMBER} .'
+                sh 'docker build -t gcr.io/concise-haven-327611/rnow:${BUILD_NUMBER} .'
 				sh 'gcloud auth activate-service-account devops@concise-haven-327611.iam.gserviceaccount.com --key-file=concise-haven-327611-236df64dbf41.json'
 				sh 'cat concise-haven-327611-236df64dbf41.json | docker login -u _json_key --password-stdin https://gcr.io'
-				sh 'docker push gcr.io/concise-haven-327611/Rnow:${BUILD_NUMBER} '
+				sh 'docker push gcr.io/concise-haven-327611/rnow:${BUILD_NUMBER} '
 				
 			
 				
@@ -79,9 +79,9 @@
 		stage('kubernetes connect and deploy') {
             steps {
                 sh 'gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project concise-haven-327611'
-                sh "sed -i 's/00/${BUILD_NUMBER}/g' Rnow-deploy.yml"
-				sh 'kubectl apply -f Rnow-deploy.yml'
-				sh 'kubectl apply -f Rnow-service.yml'
+                sh "sed -i 's/00/${BUILD_NUMBER}/g' rnow-deploy.yml"
+				sh 'kubectl apply -f rnow-deploy.yml'
+				sh 'kubectl apply -f rnow-service.yml'
 				
 				
 		
