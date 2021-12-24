@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Rnow-deployment
+  name: rnow-deployment
 spec:
   selector:
     matchLabels:
-      app: Rnow
+      app: rnow
   replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: Rnow
+        app: rnow
     spec:
       containers:
-      - name: Rnow
+      - name: rnow
         image: gcr.io/concise-haven-327611/Rnow-app:00
         ports:
         - containerPort: 8080
