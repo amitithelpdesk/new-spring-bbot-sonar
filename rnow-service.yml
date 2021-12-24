@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: Rnow-service
+  name: rnow-service
 spec:
   selector:
-    app: Rnow
+    app: rnow
   ports:
     - protocol: TCP
       port: 80
