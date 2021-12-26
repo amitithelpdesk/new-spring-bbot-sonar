@@ -78,7 +78,7 @@
         }
 		stage('kubernetes connect and deploy') {
             steps {
-                sh 'gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project concise-haven-327611'
+                sh 'gcloud container clusters get-credentials cluster-2 --zone us-central1-c --project concise-haven-327611'
                 sh "sed -i 's/00/${BUILD_NUMBER}/g' rnow-deploy.yml"
 				sh 'kubectl apply -f rnow-deploy.yml'
 				sh 'kubectl apply -f rnow-service.yml'
