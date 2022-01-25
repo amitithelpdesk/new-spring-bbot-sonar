@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: next-app-deployment
+  name: hcl-app-deployment
 spec:
   selector:
     matchLabels:
-      app: next-app
+      app: hcl-app
   replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: next-app
+        app: hcl-app
     spec:
       containers:
-      - name: next-app
+      - name: hcl-app
         image: gcr.io/concise-haven-327611/next-app:00
         ports:
         - containerPort: 8080
